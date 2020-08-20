@@ -13,19 +13,27 @@ class ClientController extends Controller
     }
     public function getAll()
     {
-        $liste_clients = Client::All();
+        $liste_clients = Client::paginate(2);
+        //$liste_clients = Client::All();
         return view('client.list', ['liste_clients'=>$liste_clients]);
     }
     public function edit($id)
     {
-        return view('client.edit');
+        $client = Client::find($id);
+        return view('client.edit',['client'=>$client]);
     }
     public function update()
     {
+        return view('client.add', ['confirmation'=>$result]);
         return $this->getAll();
     }
     public function delete($id)
     {
+        $client = Client::find($id);
+        if($client!= null)
+        {
+            $client->delete();
+        }
         return $this->getAll();
     }
     public function persist(Request $request)

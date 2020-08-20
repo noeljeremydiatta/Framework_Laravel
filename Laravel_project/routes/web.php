@@ -31,4 +31,5 @@ Route::get('/compte/edit/{id}', 'CompteController@edit')->name('editcompte');
 Route::post('/compte/update', 'CompteController@update')->name('updatecompte');
 Route::get('/compte/delete/{id}', 'CompteController@delete')->name('deletecompte');
 Route::get('/compte/getAll', 'CompteController@getAll')->name('getallcompte');
+Route::post('/compte/persist', 'CompteController@persist')->name('persistcompte');
 
